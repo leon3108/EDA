@@ -1,0 +1,39 @@
+Price and count :
+
+Variation :
+
+ggplot(data, aes(x = price)) +
+  geom_bar() +
+  labs(title = "Distribution of Prices", x = "Price", y = "Count") +
+  scale_x_continuous(breaks = seq(0, 1000, by = 50), limits = c(0, 1000))
+
+ggplot(data, aes(x = price)) +
+  geom_histogram(binwidth = 50) +
+  labs(title = "Distribution of Prices", x = "Price", y = "Count") +
+  scale_x_continuous(breaks = seq(0, 1000, by = 50), limits = c(0, 1000))
+
+ggplot(data, aes(x = price)) +
+  geom_freqpoly(binwidth = 50) +
+  labs(title = "Distribution of Prices", x = "Price", y = "Count") +
+  scale_x_continuous(breaks = seq(0, 1000, by = 50), limits = c(0, 1000))
+
+Covariation :
+
+ggplot(data = diamonds) +
+  geom_histogram(mapping = aes(x = price, fill = cut), binwidth = 500) +
+  labs(title = "Distribution of Price with Additional Cut Aesthetic", x = "Price", y = "Count") +
+  scale_fill_manual(values = c("#F8766D", "#C49A00", "#53B400", "#00BFC4", "#00B6EB"))
+
+ggplot(data = diamonds) +
+  geom_freqpoly(mapping = aes(x = price, color = cut), binwidth = 500) +
+  labs(title = "Distribution of Price with Additional Cut Aesthetic (Frequency Polygon)", x = "Price", y = "Count") +
+  scale_color_manual(values = c("#F8766D", "#C49A00", "#53B400", "#00BFC4", "#00B6EB"))
+
+ggplot(data = diamonds) +
+  geom_boxplot(mapping = aes(x = cut, y = price, fill = cut)) +
+  labs(title = "Price Distribution by Cut Quality (Box Plot)", x = "Cut Quality", y = "Price") +
+  scale_fill_manual(values = c("#F8766D", "#C49A00", "#53B400", "#00BFC4", "#00B6EB"))
+
+ggplot(data, aes(x = price, y = number_of_reviews)) +
+  geom_point() +
+  scale_x_continuous(breaks = seq(0, 1000, by = 50), limits = c(0, 1000))
